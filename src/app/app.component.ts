@@ -20,6 +20,10 @@ export class AppComponent {
   onLengthChange (E: Event) {
     let { value } = E.target as HTMLButtonElement
     if (!isNaN(parseInt(value))) {
+      if (parseInt(value) > 20 || parseInt(value) < 8) {
+        alert(`Password length should be between 8 to 20.`)
+        return
+      }
       this.length = parseInt(value) 
       this.passwordLength = Boolean(true)
     } else {
